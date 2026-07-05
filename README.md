@@ -40,6 +40,8 @@ Raw CSVs (6 files, ~453,000 rows)
 
 6 CSV exports from the Oura Ring personal health app covering approximately 2 years of data (2024–2026). All files use semicolon delimiters.
 
+"Source data is personal health data exported from the Oura Ring API. Raw data is not included in this repo."
+
 | File | Description | Rows |
 |------|-------------|------|
 | `dailycardiovascularage.csv` | Daily vascular age and pulse wave velocity | ~687 |
