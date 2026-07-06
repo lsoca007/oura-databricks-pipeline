@@ -1,4 +1,4 @@
-# Oura Ring Databricks Data Pipeline
+# Oura Ring Medallion Data Pipeline with Databricks
 
 End-to-end medallion architecture pipeline built on 2 years of personal Oura Ring health data using PySpark, Delta Lake, and Databricks Unity Catalog.
 
