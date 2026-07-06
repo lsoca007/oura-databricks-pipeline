@@ -1,6 +1,8 @@
 # Oura Ring Medallion Data Pipeline with Databricks
 
-End-to-end medallion architecture pipeline built on 2 years of personal Oura Ring health data using PySpark, Delta Lake, and Databricks Unity Catalog.
+Built an end-to-end medallion architecture pipeline using 2 years of personal Oura Ring health data, PySpark, Delta Lake, and Databricks Unity Catalog. The pipeline ingests raw CSV files into Bronze Delta tables, cleans and standardizes records in Silver, and creates Gold tables for analytics.
+
+The project follows the data engineering lifecycle: source data ingestion, storage in Delta Lake, transformation with PySpark, and serving curated Gold tables for analysis.
 
 ---
 
@@ -29,10 +31,12 @@ Raw CSVs (6 files, ~453,000 rows)
 
 ## Tech Stack
 
-- **Platform:** Databricks (Unity Catalog)
+- **Platform:** Databricks
+- **Catalog/Governance:** Databricks Unity Catalog
 - **Language:** Python / PySpark
+- **Processing:** Apache Spark
 - **Storage:** Delta Lake
-- **Architecture:** Medallion (Bronze / Silver / Gold)
+- **Architecture:** Medallion architecture (Bronze / Silver / Gold)
 
 ---
 
@@ -40,7 +44,8 @@ Raw CSVs (6 files, ~453,000 rows)
 
 6 CSV exports from the Oura Ring personal health app covering approximately 2 years of data (2024–2026). All files use semicolon delimiters.
 
-"Source data is personal health data exported from the Oura Ring API. Raw data is not included in this repo."
+Source data is personal health data exported from Oura Ring. Raw data is not included in this repo for privacy reasons.
+
 
 | File | Description | Rows |
 |------|-------------|------|
@@ -105,6 +110,12 @@ The heartrate file contains ~450,141 rows sampled every ~20 seconds. Rather than
 Heartrate timestamps and workout start/end datetimes contain mixed timezone offsets. All are normalized to UTC using `to_timestamp()` in the silver layer before any aggregation or joining.
 
 ---
+## Business Questions Answered
+
+- How do cardiovascular, readiness, stress, heart rate, and workout metrics trend over time?
+- Which daily metrics show the strongest relationship with vascular age?
+- How do workout activity and stress levels relate to readiness and recovery?
+- How can high-frequency heart rate data be aggregated into daily analytical features?
 
 ## Sample Output
 
